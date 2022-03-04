@@ -97,7 +97,6 @@ class Watcher {
 // 创建一个伪vue
 class Mvue {
   constructor (options, prop) {
-    this.$options = options
     this.$data = options.data()
     this.$prop = prop
     this.$el = document.querySelector(options.el)

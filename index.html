@@ -12,18 +12,46 @@
       height: 200px;
       background-color: skyblue;
     }
+
+    #grid {
+      column-count: 4;
+      column-gap: 10px;
+    }
+
+    #grid .grid-item {
+      background-size: cover;
+      background-position: center;
+      display: grid;
+      grid-gap: 10px;
+      margin-bottom: 10px;
+      grid-template-rows: repeat(1fr auto);
+    }
   </style>
 </head>
 
 <body>
   <!-- <div id="some-element-you-want-to-animate"></div> -->
   <div id="app">{{name}}</div>
+  <div id="grid"></div>
+  <script>
+    for (let i = 0; i <= 50; i++) {
+      const div = document.querySelector('#grid')
+      const item = document.createElement('div')
+      item.classList.add('grid-item')
+      item.style.backgroundImage = `url(https://picsum.photos/500/500?random=${i})`;
+      item.style.height = Math.random() * 1000 / 1 + 'px'
+      div.appendChild(item)
+
+    }
+  </script>
   <!-- <script src="./requestAnimationFrame.js"></script> -->
-  <script src="./defineProperty.js"></script>
-  <script src="./reverseNodeList.ts"></script>
+  <!-- <script src="./defineProperty.js"></script> -->
+  <!-- <script src="./reverseNodeList.ts"></script>
   <script src="./flatArr.js"></script>
   <script src="./hanoi.js"></script>
   <script src="./async.js"></script>
+  <script src="./eventEmitter.js"></script> -->
+  <script src="./MyVue.js"></script>
 </body>
 
 </html>
