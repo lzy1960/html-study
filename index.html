@@ -13,7 +13,7 @@
       background-color: skyblue;
     }
 
-    #grid {
+    /* #grid {
       column-count: 4;
       column-gap: 10px;
     }
@@ -25,6 +25,22 @@
       grid-gap: 10px;
       margin-bottom: 10px;
       grid-template-rows: repeat(1fr auto);
+    } */
+
+    #waterfall {
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    #waterfall .waterfall-item {
+      width: 100%;
+      background-color: #ccc;
+      box-sizing: border-box;
+    }
+
+    #waterfall .waterfall-item img {
+      width: 100%;
     }
   </style>
 </head>
@@ -32,17 +48,50 @@
 <body>
   <!-- <div id="some-element-you-want-to-animate"></div> -->
   <div id="app">{{name}}</div>
-  <div id="grid"></div>
+  <!-- 瀑布流(多列布局) -->
+  <!-- <div id="grid"></div> -->
+  <!-- 瀑布流(grid布局) -->
+  <div id="waterfall">
+    <div class="waterfall-item">
+      <img src="https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white-d0c9fe2af5.png" alt="">
+    </div>
+    <div class="waterfall-item">
+      <img src="https://picsum.photos/500/500?random=2" alt="">
+    </div>
+    <div class="waterfall-item">
+      <img src="https://picsum.photos/500/500?random=3" alt="">
+    </div>
+    <div class="waterfall-item">
+      <img src="https://picsum.photos/500/500?random=4" alt="">
+    </div>
+    <div class="waterfall-item">
+      <img src="https://picsum.photos/500/500?random=5" alt="">
+    </div>
+    <div class="waterfall-item">
+      <img src="https://picsum.photos/500/500?random=6" alt="">
+    </div>
+  </div>
   <script>
-    for (let i = 0; i <= 50; i++) {
-      const div = document.querySelector('#grid')
-      const item = document.createElement('div')
-      item.classList.add('grid-item')
-      item.style.backgroundImage = `url(https://picsum.photos/500/500?random=${i})`;
-      item.style.height = Math.random() * 1000 / 1 + 'px'
-      div.appendChild(item)
+    // 多列瀑布流
+    // for (let i = 0; i <= 50; i++) {
+    //   const div = document.querySelector('#grid')
+    //   const item = document.createElement('div')
+    //   item.classList.add('grid-item')
+    //   item.style.backgroundImage = `url(https://picsum.photos/500/500?random=${i})`;
+    //   item.style.height = Math.random() * 1000 / 1 + 'px'
+    //   div.appendChild(item)
+    // }
 
+    // grid瀑布流
+    window.onload = () => {
+      const itemList = document.querySelectorAll('.waterfall-item')
+      itemList.forEach((item, index) => {
+        console.log(item.children[0].height)
+        // item.children[0].height = (index + 1) * 100
+        item.style.gridRow = 'auto / span ' + Math.round(item.children[0].height / 10)
+      })
     }
+
   </script>
   <!-- <script src="./requestAnimationFrame.js"></script> -->
   <!-- <script src="./defineProperty.js"></script> -->
