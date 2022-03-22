@@ -51,7 +51,7 @@
   <!-- 瀑布流(多列布局) -->
   <!-- <div id="grid"></div> -->
   <!-- 瀑布流(grid布局) -->
-  <div id="waterfall">
+  <!-- <div id="waterfall">
     <div class="waterfall-item">
       <img src="https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white-d0c9fe2af5.png" alt="">
     </div>
@@ -70,7 +70,7 @@
     <div class="waterfall-item">
       <img src="https://picsum.photos/500/500?random=6" alt="">
     </div>
-  </div>
+  </div> -->
   <script>
     // 多列瀑布流
     // for (let i = 0; i <= 50; i++) {
@@ -83,14 +83,14 @@
     // }
 
     // grid瀑布流
-    window.onload = () => {
-      const itemList = document.querySelectorAll('.waterfall-item')
-      itemList.forEach((item, index) => {
-        console.log(item.children[0].height)
-        // item.children[0].height = (index + 1) * 100
-        item.style.gridRow = 'auto / span ' + Math.round(item.children[0].height / 10)
-      })
-    }
+    // window.onload = () => {
+    //   const itemList = document.querySelectorAll('.waterfall-item')
+    //   itemList.forEach((item, index) => {
+    //     console.log(item.children[0].height)
+    //     // item.children[0].height = (index + 1) * 100
+    //     item.style.gridRow = 'auto / span ' + Math.round(item.children[0].height / 10)
+    //   })
+    // }
 
   </script>
   <!-- <script src="./requestAnimationFrame.js"></script> -->
@@ -100,7 +100,8 @@
   <script src="./hanoi.js"></script>
   <script src="./async.js"></script>
   <script src="./eventEmitter.js"></script> -->
-  <script src="./MyVue.js"></script>
+  <!-- <script src="./MyVue.js"></script> -->
+  <script src="./myPromise.js"></script>
 </body>
 
 </html>
