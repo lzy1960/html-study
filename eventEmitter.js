@@ -34,6 +34,15 @@ class EventEmitter {
     const newCallbacks = callbacks.filter(fn => fn != callback)
     this._events[eventName] = newCallbacks;
   }
+
+  // 添加单次订阅，触发一次订阅事件后取消订阅，需要添加的订阅事件名及指定的回调函数
+  once (eventName, callback) {
+    const wrapper = (...args) => {
+      callback(...args)
+      this.remove(eventName, wrapper)
+    }
+    this.on(eventName, wrapper)
+  }
 }
 
 // 测试
