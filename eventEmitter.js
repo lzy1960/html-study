@@ -39,7 +39,7 @@ class EventEmitter {
   once (eventName, callback) {
     const wrapper = (...args) => {
       callback(...args)
-      this.remove(eventName, wrapper)
+      this.off(eventName, wrapper)
     }
     this.on(eventName, wrapper)
   }

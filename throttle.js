@@ -1,10 +1,11 @@
-function throttle (fn, delay = 1000) {
-  let curTime = Date.now()
-  return () => {
-    nowTime = Date.now()
-    if (nowTime - curTime >= delay) {
-      curTime = Date.now()
-      return fn
+// 节流
+export const throttle = (() => {
+  var prev = Date.now()
+  return (callback, delay = 1000) => {
+    var now = Date.now()
+    if (now - prev > delay) {
+      callback()
+      prev = Date.now()
     }
   }
-}
+})()
