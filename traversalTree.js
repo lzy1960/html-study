@@ -6,7 +6,7 @@ function TreeNode (val) {
 // 递归
 // 前序遍历
 function preorderTraversal (root) {
-  const reuslt = []
+  const result = []
   if (!root) return result
   result.push(root.val)
   preorderTraversal(root.left)
